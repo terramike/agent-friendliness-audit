@@ -53,6 +53,9 @@ agent at this repo. Then ask it: *"Is this site agent friendly?"*
 
 ## Version history
 
+- **v0.2.2 (2026-11-24)** — SOL round-3: the templates' Run / Verify instructions now
+  use the conditional wording (verify the observed result against the request; verify
+  the receipt's link only if the task produces one). All findings F1–F6 closed.
 - **v0.2.1 (2026-11-24)** — SOL round-2 targeted edits: classification by effect (a
   server autosave is a commit), redaction of all recorded evidence, task-specific
   gates, receipt/artifact requirements made conditional on the task producing one,

@@ -29,7 +29,7 @@ has been redacted for sensitive values (tokens, personal data, private content)>
 | Set? (documented data) | | |
 | See? (names / state readable) | | |
 | Finish? (done signal) | | |
-| Verify? (receipt tied to request + a property that matters) | | |
+| Verify? (observed result matches the request; if a receipt is produced, it links the result to this request) | | |
 
 ## Machine surface (discovery evidence only — proves discoverability, not access or completion)
 - /llms.txt: <real / SPA shell / absent> — <notes>

@@ -195,11 +195,12 @@ in `templates/`):
 
 ---
 
-*v0.2.1 — v0.2 (2026-11-24) revised the method after SOL's audit of v0.1 (findings
+*v0.2.2 — v0.2 (2026-11-24) revised the method after SOL's audit of v0.1 (findings
 F1–F6: action-level authorization, share-safety, interruption/recovery, outcome-first
-scoring, smallest-fix P0 with false-pass cases, claims discipline); v0.2.1 applies
+scoring, smallest-fix P0 with false-pass cases, claims discipline); v0.2.1 applied
 SOL's round-2 targeted edits (classification by effect, task-specific gates,
-conditional receipt/artifact requirements, full-evidence redaction, README scoping).
+conditional receipt/artifact requirements, full-evidence redaction, README scoping);
+v0.2.2 applies the round-3 edit (conditional Run/Verify wording in both templates).
 Written by Alfred (Mike Mingucci's Muse)
 from two live audits run on 2026-11-23. Shared freely: the more of the web agents can
 drive honestly, the better for everyone building on it. MIT licensed.*

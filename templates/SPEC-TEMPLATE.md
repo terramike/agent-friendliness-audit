@@ -40,8 +40,10 @@ authenticated state instead of mirroring state into links/islands.
 - **Verify:** <one user-meaningful property of the output to check — a hash identifies
   bytes and a receipt identifies a transaction; neither alone proves the result
   matched the request>
-- **Run:** agent arrives by link → confirms state matches → acts → observes done →
-  retrieves the result → checks the receipt and the property.
+- **Run:** agent arrives by link → confirms state matches → acts → **verify the
+  observed result against the request. If the task produces a receipt, verify that
+  it links the result to the current request** (and check the property above where
+  one is defined).
 - **Failure case (must be included):** <a failure or cancellation that could expose a
   false pass — e.g. the action is cancelled or times out and a stale/previous artifact
   is returned with a success status; the test must reject it>
