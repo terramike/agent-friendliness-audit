@@ -4,7 +4,8 @@
 **Scope:** <one line: what this spec is about, and what it deliberately is not>
 
 ## 1. Verdict
-<The audit's blunt summary. What an agent can and cannot do today, in one paragraph.>
+<The audit's blunt summary: the task outcome, the first blocker, and what an agent can
+and cannot do today — in one paragraph.>
 
 ### What already works (keep, and thank you)
 - <strengths, with evidence>
@@ -12,22 +13,38 @@
 ### What blocks an agent today (verified live, <date>)
 - <blockers, each with the observed evidence>
 
-## 2. P0 — the thin skin
-1. **Documented data format.** <settings/state as versioned JSON, written down in
-   /llms.txt or docs; emitted complete by the product's own "copy" affordance>
-2. **Full-state URLs.** <?param=&s=<encoded state>>; Share copies the full state, not
-   the bare page URL.
-3. **Names + state in the DOM.** Accessible names on every control, stable
-   `data-testid`s, a `role="status"` line, and a JSON state island
-   (`<script type="application/json" id="<product>-state">`) rewritten on change.
-4. **Self-describing output + coded errors.** <filename/metadata carries an id or hash;
-   errors as one line `error: <code> - <why>`; no silent fallbacks>
+## 2. P0 — the smallest fix that passes the task test
+Work down the ladder; stop at the first rung that solves the task. Reuse existing
+state and interfaces before proposing anything new — a canonical link may solve
+arrival; a named HTML control may solve operation.
 
-### P0 acceptance test
-An agent can: open a full-state URL → read the state island and confirm every field
-matches → trigger the core action → observe progress → receive `done: <artifact id>` →
-retrieve the artifact and verify it. <Adapt to the product; if this can't be written
-concretely, the spec isn't ready.>
+1. **<fix>** — unblocks task-test step <n>. <Prefer, in order: existing interface →
+   documentation of what exists → new surface (named control, test id, JSON island,
+   API) only if the earlier rungs fail.>
+
+### Share-safety (required if any state goes into URLs or page state)
+Fields **safe to share** in links / state islands (explicit list — if a field is not
+listed, it does not go in):
+- <field> — <why it's public-safe>
+
+Credentials, private drafts, and personal data never appear in URLs or in page state
+exposed for discovery. For private or account workflows, use the product's existing
+authenticated state instead of mirroring state into links/islands.
+
+### Acceptance test (define success before running it)
+- **Task:** <the user's task>
+- **Expected result:** <what success looks like>
+- **Receipt:** <the id/record this request produces, tying output to request>
+- **Verify:** <one user-meaningful property of the output to check — a hash identifies
+  bytes and a receipt identifies a transaction; neither alone proves the result
+  matched the request>
+- **Run:** agent arrives by link → confirms state matches → acts → observes done →
+  retrieves the result → checks the receipt and the property.
+- **Failure case (must be included):** <a failure or cancellation that could expose a
+  false pass — e.g. the action is cancelled or times out and a stale/previous artifact
+  is returned with a success status; the test must reject it>
+- **Authorization note:** <which steps are commits (send/spend/publish/state change)
+  and whose approval they require; in tests, stop at review or use a test environment>
 
 ## 3. P1 — worth it, not blocking
 - <determinism notes, events (`<product>:done/progress/error`), a small JS API
