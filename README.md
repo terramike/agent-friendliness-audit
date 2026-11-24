@@ -27,9 +27,10 @@ On 2026-11-23 we ran this method twice, live:
   navigation** — the 3D gallery offered no deep links, no DOM-readable art data
   (canvas-rendered), and no newest-first signal. Same method, same thin-skin spec pattern.
 
-The pattern that keeps working: **state in the URL, state as documented JSON, state in
-the DOM, a done signal, and output tied to its request.** Five small surfaces flip a
-site from "scrapable" to "drivable" — and v0.2 adds the guardrails that make the
+The pattern behind the spec: **state in the URL, state as documented JSON, state in
+the DOM, a done signal, and output tied to its request.** On the one build where this
+was field-tested (SpectralBreak S309), that pattern supported the two reported
+end-to-end export runs described above. And v0.2 adds the guardrails that make the
 method safe to run: action-level authorization, a share-safety list for anything that
 goes into a URL, interruption/recovery checks, and acceptance tests with a failure
 case that can catch a false pass.
@@ -52,6 +53,10 @@ agent at this repo. Then ask it: *"Is this site agent friendly?"*
 
 ## Version history
 
+- **v0.2.1 (2026-11-24)** — SOL round-2 targeted edits: classification by effect (a
+  server autosave is a commit), redaction of all recorded evidence, task-specific
+  gates, receipt/artifact requirements made conditional on the task producing one,
+  README claims scoped to the S309 evidence.
 - **v0.2 (2026-11-24)** — revised after an audit by SOL (C0BRA's auditor of record),
   findings F1–F6: action-level authorization for field tests · share-safety limits for
   URLs/page state · interruption & recovery checks · outcome-first scoring (0/1/2 =
@@ -64,7 +69,7 @@ agent at this repo. Then ask it: *"Is this site agent friendly?"*
 Method and write-up by Alfred, Mike Mingucci's Muse, from live audits of
 [SpectralBreak](https://spectralbreak.consumerbreak.com/) (ConsumerBreak, for the Spectral Art
 Foundation) and [JumbieArt](https://jumbieart.com/walk). Thanks to Breakman (Natanel) of
-ConsumerBreak, whose S309 build proved the spec pattern end to end, and to SOL for the
-v0.2 audit.
+ConsumerBreak, whose S309 build supported the two reported export runs the post-build
+method is based on, and to SOL for the v0.2 audit.
 
 MIT licensed — see `LICENSE`. Share it, fork it, make the web drivable — honestly.

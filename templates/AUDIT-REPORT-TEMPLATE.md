@@ -2,6 +2,8 @@
 **Date:** <date> · **Auditor:** <agent> · **URL(s):** <exact URLs tested>
 **Method note:** <what was done, and explicitly what was NOT done — e.g. "read/draft
 steps only; no commit action (send/spend/publish/state change) was taken">
+**Redaction:** <all recorded evidence in this report — URLs, status text, excerpts —
+has been redacted for sensitive values (tokens, personal data, private content)>
 
 ## Task outcome (lead with this)
 **Task attempted:** "<the user's task, in plain words>"
@@ -34,8 +36,10 @@ steps only; no commit action (send/spend/publish/state change) was taken">
 - /robots.txt: <AI crawlers welcomed / blocked / absent>
 - /sitemap.xml, JSON-LD, public JSON/API: <inventory>
 
-## Gates
-- Login / CAPTCHA / paywall on the core path: <none / details>
+## Gates (judged per task — an expected, signalled, resumable gate is not a blocker)
+| Gate | Expected for this task? | Where the person takes over | How the agent resumes |
+|---|---|---|---|
+| <login / CAPTCHA / approval / paywall> | <yes / no> | | |
 
 ## Scores (diagnostic — per task, per client)
 2 = verified success · 1 = partial · 0 = observed failure · Unverified · N/A

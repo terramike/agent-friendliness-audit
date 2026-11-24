@@ -34,7 +34,9 @@ authenticated state instead of mirroring state into links/islands.
 ### Acceptance test (define success before running it)
 - **Task:** <the user's task>
 - **Expected result:** <what success looks like>
-- **Receipt:** <the id/record this request produces, tying output to request>
+- **Receipt (only if the task produces one):** <the id/record this request produces,
+  tying output to request. Read-only lookups produce no receipt or artifact — their
+  verification is matching the displayed content to the request.>
 - **Verify:** <one user-meaningful property of the output to check — a hash identifies
   bytes and a receipt identifies a transaction; neither alone proves the result
   matched the request>
